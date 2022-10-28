@@ -28,7 +28,7 @@ Install Python and Beautiful Soup first
 ## Usage
 
 One can scrap data by adding into a python code:
-'''
+```
 import nhanesLoader as nl
 from nhanesVariables import tests
 
@@ -37,7 +37,7 @@ currentDir="C:\tmp\\"
 csvFile='C:/output.csv'
 nl.nhanesMergerNumpy(currentDir+"Nhanes\\",testList,dest=csvFile,all=True)  #Scrape and creates CSV
 df=nl.loadCSV(csvFile,ageMin=18,ageMax=25)   #Load the created CSV file into a dataframe
-'''
+```
 ## Contributing
 
 Code is given as it is, with no assumption this will work. Feel free to contribute!
