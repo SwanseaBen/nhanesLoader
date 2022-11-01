@@ -1,4 +1,5 @@
 # nhanesLoader
+
 <div>
 <h3 align="center">NHANES Webscraper</h3>
 
@@ -15,8 +16,6 @@
 
 ## Getting Started
 
-
-
 ### Prerequisites
 
 Python programming knowledge
@@ -28,21 +27,24 @@ Install Python and Beautiful Soup first
 ## Usage
 
 One can scrap data by adding into a python code:
+
 ```
 import nhanesLoader as nl
-from nhanesVariables import tests
+from nhanesVariables import Tests
 
-testList=["THYROD","CBC"]
-currentDir="C:\tmp\\"
-csvFile='C:/output.csv'
-nl.nhanesMergerNumpy(currentDir+"Nhanes\\",testList,dest=csvFile,all=True)  #Scrape and creates CSV
-df=nl.loadCSV(csvFile,ageMin=18,ageMax=25)   #Load the created CSV file into a dataframe
+testList = ["THYROD", "CBC"]
+currentDir = "C:\tmp\\"
+csvFile = 'C:/output.csv'
+nl.nhanes_merger_numpy(currentDir + "Nhanes\\", testList, dest=csvFile, all=True) # Scrape and creates CSV
+df = nl.load_csv(csvFile, ageMin=18, ageMax=25) # Load the created CSV file into a dataframe
 ```
+
 ## Contributing
 
 Code is given as it is, with no assumption this will work. Feel free to contribute!
 
 >
+
 ## License
 
 Distributed under the MIT License. 

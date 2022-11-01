@@ -1,7 +1,6 @@
-
-class tests:
-    seqn =  'SEQN'  
-    age =  'RIDAGEYR'  
+class Tests:
+    seqn = 'SEQN'
+    age = 'RIDAGEYR'
     crp = 'LBXCRP'
     hscrp = 'LBXHSCRP'
     ldh = 'LBXSLDSI'
@@ -37,14 +36,14 @@ class tests:
     ast = 'LBXSASSI'
     ggt = 'LBXSGTSI'
     bilirubin = 'LBDSTBSI'
-    cpk = '' #'LBXSCK'
+    cpk = ''  # 'LBXSCK'
     albumin = 'LBDSALSI'
     protein = 'LBXSTP'
     globulin = 'LBDSGBSI'
-    chol='LBXSCH'
-    ldl='LBDLDL'
-    hdl='LBDHDDSI'
-    trigly='LBXSTR'
+    chol = 'LBXSCH'
+    ldl = 'LBDLDL'
+    hdl = 'LBDHDDSI'
+    trigly = 'LBXSTR'
     creatinin = 'LBDSCRSI'
     bun = 'LBXSBU'
     tsh = 'LBXTSH1'
@@ -66,35 +65,35 @@ class tests:
     uric = 'LBDSUASI'
     b12 = 'LBDB12'
     vitd = 'LB2VID'
-    folate_rbc= 'LBXRBF'
-    folate= 'LBDFOL'
-    ferritin='LBDFER'
-    ferritinSI='LBXFERSI'
-    transferin_receptor='LBXTFR'
+    folate_rbc = 'LBXRBF'
+    folate = 'LBDFOL'
+    ferritin = 'LBDFER'
+    ferritinSI = 'LBXFERSI'
+    transferin_receptor = 'LBXTFR'
 
-    alcohol_first='ALQ010SAS'
-    alcohol_lifetime='ALD020'
-    alcohol_past30days='ALD030'
-    alcohol_past30days_5='ALD040'
+    alcohol_first = 'ALQ010SAS'
+    alcohol_lifetime = 'ALD020'
+    alcohol_past30days = 'ALD030'
+    alcohol_past30days_5 = 'ALD040'
 
-    bpq_ever_told_hypertension='BPQ020S'
-    bpq_ever_told_multiple_hypertension='BPQ030'
-    bpq_ever_told_hypertension='BPQ020SAS'
-    bpq_age_told='BPQ035'
-    bpq_taking_prescription='BPQ040A'
-    bpq_taking_prescription_current='BPQ050A'
-    bpq_ever_told_high_cholesterol='BPQ080'
-    bpq_ever_told_cholesterol_reduce_fat='BPQ090A'
-    bpq_ever_told_cholesterol_reduce_weight='BPQ090B'
-    bpq_ever_told_cholesterol_exercise='BPQ090C'
-    bpq_ever_told_take_medecine='BPQ090D'
-    
-    bowel_leakage_gas='BHQ010'
-    bowel_leakage_mucus='BHQ020'
-    bowel_leakage_liquid_stools='BHQ030'
-    bowel_leakage_solid_stools='BHQ040'
-    bowel_frequency='BHD050'
-    bowel_common_stool_type='BHQ060'
+    bpq_ever_told_hypertension = 'BPQ020S'
+    bpq_ever_told_multiple_hypertension = 'BPQ030'
+    bpq_ever_told_hypertension = 'BPQ020SAS'
+    bpq_age_told = 'BPQ035'
+    bpq_taking_prescription = 'BPQ040A'
+    bpq_taking_prescription_current = 'BPQ050A'
+    bpq_ever_told_high_cholesterol = 'BPQ080'
+    bpq_ever_told_cholesterol_reduce_fat = 'BPQ090A'
+    bpq_ever_told_cholesterol_reduce_weight = 'BPQ090B'
+    bpq_ever_told_cholesterol_exercise = 'BPQ090C'
+    bpq_ever_told_take_medecine = 'BPQ090D'
+
+    bowel_leakage_gas = 'BHQ010'
+    bowel_leakage_mucus = 'BHQ020'
+    bowel_leakage_liquid_stools = 'BHQ030'
+    bowel_leakage_solid_stools = 'BHQ040'
+    bowel_frequency = 'BHD050'
+    bowel_common_stool_type = 'BHQ060'
 
     chest_pain_ever_had = 'CDQ001'
     chest_pain_walking_uphill = 'CDQ002'
@@ -173,7 +172,7 @@ class tests:
     diabetes_recent_dbp = 'DIQ300D'
     diabetes_doctor_sbp = 'DID310S'
     diabetes_doctor_dbp = 'DID310D'
-    diabetes_recent_ldl = 'DID320' #error:Q?
+    diabetes_recent_ldl = 'DID320'  # error:Q?
     diabetes_doctor_ldl = 'DID330'
     diabetes_eyes_affected = 'DIQ080'
 
@@ -224,131 +223,121 @@ class tests:
     sleep_snoring_frequency = "SLQ030"
     sleep_stop_breathing_frequency = "SLQ040"
     sleep_ever_told_doctor = "SLQ050"
-    sleep_ever_told_by= 'SLQ060' # - Ever told by doctor have sleep disorder?
-    sleep_disorder_apnea= 'SLQ070A' # - Sleep disorder: Sleep Apnea
-    sleep_disorder_insomnia= 'SLQ070B' # - Sleep disorder: Insomnia
-    sleep_disorder_restless_leg= 'SLQ070C' # - Sleep disorder: Restless Legs
-    sleep_disorder_other= 'SLQ070D' # - Sleep disorder: Other
-    sleep_trouble_asleep_frequency= 'SLQ080' # - How often have trouble falling asleep?
-    sleep_wakeup_frequency= 'SLQ090' # - How often wake up during night?
-    sleep_wakeup_too_early_frequency= 'SLQ100' # - How often wake up too early in morning?
-    sleep_feeling_unrest_frequency= 'SLQ110' # - How often feel unrested during the day?
-    sleep_feel_sleepy_daily_frequency= 'SLQ120' # - How often feel overly sleepy during day?
-    sleep_not_enough_frequency= 'SLQ130' # - How often did you not get enough sleep?
-    sleep_pill_frequency= 'SLQ140' # - How often take pills to help you sleep?
-    sleep_leg_jerks_frequency= 'SLQ150' # - How often have leg jerks while sleeping?
-    sleep_cramps_frequency= 'SLQ160' # - How often have legs cramp while sleeping
-    sleep_concentrating_difficulty_tired= 'SLQ170' # - Difficulty concentrating when tired?
-    sleep_memory_difficulty_tired= 'SLQ180' # - Difficulty remembering when tired?
-    sleep_eating_difficulty_tired= 'SLQ190' # - Difficulty eating when tired?
-    sleep_hobby_difficulty_tired= 'SLQ200' # - Difficulty with a hobby when tired?
-    sleep_things_done_difficulty= 'SLQ210' # - Difficulty getting things done?
-    sleep_finance_difficulty= 'SLQ220' # - Difficulty with finance when tired?
-    sleep_work_difficulty= 'SLQ230' # - Difficulty at work because tired?
-    sleep_phone_difficulty= 'SLQ240' # - Difficulty on phone when tired?
+    sleep_ever_told_by = 'SLQ060'  # - Ever told by doctor have sleep disorder?
+    sleep_disorder_apnea = 'SLQ070A'  # - Sleep disorder: Sleep Apnea
+    sleep_disorder_insomnia = 'SLQ070B'  # - Sleep disorder: Insomnia
+    sleep_disorder_restless_leg = 'SLQ070C'  # - Sleep disorder: Restless Legs
+    sleep_disorder_other = 'SLQ070D'  # - Sleep disorder: Other
+    sleep_trouble_asleep_frequency = 'SLQ080'  # - How often have trouble falling asleep?
+    sleep_wakeup_frequency = 'SLQ090'  # - How often wake up during night?
+    sleep_wakeup_too_early_frequency = 'SLQ100'  # - How often wake up too early in morning?
+    sleep_feeling_unrest_frequency = 'SLQ110'  # - How often feel unrested during the day?
+    sleep_feel_sleepy_daily_frequency = 'SLQ120'  # - How often feel overly sleepy during day?
+    sleep_not_enough_frequency = 'SLQ130'  # - How often did you not get enough sleep?
+    sleep_pill_frequency = 'SLQ140'  # - How often take pills to help you sleep?
+    sleep_leg_jerks_frequency = 'SLQ150'  # - How often have leg jerks while sleeping?
+    sleep_cramps_frequency = 'SLQ160'  # - How often have legs cramp while sleeping
+    sleep_concentrating_difficulty_tired = 'SLQ170'  # - Difficulty concentrating when tired?
+    sleep_memory_difficulty_tired = 'SLQ180'  # - Difficulty remembering when tired?
+    sleep_eating_difficulty_tired = 'SLQ190'  # - Difficulty eating when tired?
+    sleep_hobby_difficulty_tired = 'SLQ200'  # - Difficulty with a hobby when tired?
+    sleep_things_done_difficulty = 'SLQ210'  # - Difficulty getting things done?
+    sleep_finance_difficulty = 'SLQ220'  # - Difficulty with finance when tired?
+    sleep_work_difficulty = 'SLQ230'  # - Difficulty at work because tired?
+    sleep_phone_difficulty = 'SLQ240'  # - Difficulty on phone when tired?
 
-    
-    smoking_100 = 'SMQ020' #  -Smoked at least 100 cigarettes in life
-    smoking_age_regular = 'SMD030' #  -Age started smoking cigarettes regularly
-    smoking_currently = 'SMQ040' #  -Do you now smoke cigarettes
-    smoking_quit_time = 'SMQ050Q' #  -How long since quit smoking cigarettes
-    smoking_unit = 'SMQ050U' #  -Unit of measure (day/week/month/year)
-    smoking_age_last_regular = 'SMD055' #  -Age last smoked cigarettes regularly
-    smoking_daily_before_quit = 'SMD057' #  -# cigarettes smoked per day when quit
-    smoking_after_waking_time = 'SMQ077' #  -How soon after waking do you smoke
-    smoking_days_in_last_month = 'SMD641' #  -# days smoked cigs during past 30 days
-    smoking_daily_avg = 'SMD650' #  -Avg # cigarettes/day during past 30 days
-    smoking_pack_see = 'SMD093' #  -May I please see the pack of cigarettes
-    smoking_upc = 'SMDUPCA' #  -Cig 12-digit Universal Product Code-UPC
-    smoking_brand = 'SMD100BR' #  -Cigarette Brand/sub-brand
-    smoking_filter = 'SMD100FL' #  -Filter type
-    smoking_menthol = 'SMD100MN' #  -Menthol indicator
-    smoking_length = 'SMD100LN' #  -Length
-    smoking_tar = 'SMD100TR' #  -FTC Tar Content
-    smoking_nicotine = 'SMD100NI' #  -FTC Nicotine Content
-    smoking_CO = 'SMD100CO' #  -FTC Carbon Monoxide Content
-    smoking_tried = 'SMQ620' #  -Ever tried cigarette smoking
-    smoking_age_first = 'SMD630' #  -Age first smoked whole cigarette
-    smoking_brands = 'SMQ660' #  -Brands of cigarettes smoked/past mo
-    smoking_malboro = 'SMQ664M' #  -Menthol or non-menthol Marlboro
-    smoking_camels = 'SMQ664C' #  -Menthol or non-menthol Camels
-    smoking_winston = 'SMQ664W' #  -Menthol or non-menthol Winston
-    smoking_bensonhedges = 'SMQ664B' #  -Menthol or non-menthol BensonHedges
-    smoking_other_brands = 'SMQ664O' #  -Menthol or non-menthol other brand
-    smoking_rll_malboro = 'SMQ666M' #  -Regular, light or ultralite Marlboro
-    smoking_rll_camels = 'SMQ666C' #  -Regular, light or ultralite Camels
-    smoking_rll_kools = 'SMQ666K' #  -Regular, light or ultralite Kools
-    smoking_rll_winston = 'SMQ666W' #  -Regular, light or ultralite Winston
-    smoking_rll_bensonhedges = 'SMQ666B' #  -Regular, light or ultralite BensonHedges
-    smoking_rll_salem = 'SMQ666S' #  -Regular, light or ultralite Salem
-    smoking_rll_other = 'SMQ666O' #  -Regular, light or ultralite other brand
-    smoking_tried_quit = 'SMQ670' #  -Tried to quit smoking
-    smoking_qflag  = 'SMAQUEX2' #  -Questionnaire Mode Flag
+    smoking_100 = 'SMQ020'  # -Smoked at least 100 cigarettes in life
+    smoking_age_regular = 'SMD030'  # -Age started smoking cigarettes regularly
+    smoking_currently = 'SMQ040'  # -Do you now smoke cigarettes
+    smoking_quit_time = 'SMQ050Q'  # -How long since quit smoking cigarettes
+    smoking_unit = 'SMQ050U'  # -Unit of measure (day/week/month/year)
+    smoking_age_last_regular = 'SMD055'  # -Age last smoked cigarettes regularly
+    smoking_daily_before_quit = 'SMD057'  # -# cigarettes smoked per day when quit
+    smoking_after_waking_time = 'SMQ077'  # -How soon after waking do you smoke
+    smoking_days_in_last_month = 'SMD641'  # -# days smoked cigs during past 30 days
+    smoking_daily_avg = 'SMD650'  # -Avg # cigarettes/day during past 30 days
+    smoking_pack_see = 'SMD093'  # -May I please see the pack of cigarettes
+    smoking_upc = 'SMDUPCA'  # -Cig 12-digit Universal Product Code-UPC
+    smoking_brand = 'SMD100BR'  # -Cigarette Brand/sub-brand
+    smoking_filter = 'SMD100FL'  # -Filter type
+    smoking_menthol = 'SMD100MN'  # -Menthol indicator
+    smoking_length = 'SMD100LN'  # -Length
+    smoking_tar = 'SMD100TR'  # -FTC Tar Content
+    smoking_nicotine = 'SMD100NI'  # -FTC Nicotine Content
+    smoking_CO = 'SMD100CO'  # -FTC Carbon Monoxide Content
+    smoking_tried = 'SMQ620'  # -Ever tried cigarette smoking
+    smoking_age_first = 'SMD630'  # -Age first smoked whole cigarette
+    smoking_brands = 'SMQ660'  # -Brands of cigarettes smoked/past mo
+    smoking_malboro = 'SMQ664M'  # -Menthol or non-menthol Marlboro
+    smoking_camels = 'SMQ664C'  # -Menthol or non-menthol Camels
+    smoking_winston = 'SMQ664W'  # -Menthol or non-menthol Winston
+    smoking_bensonhedges = 'SMQ664B'  # -Menthol or non-menthol BensonHedges
+    smoking_other_brands = 'SMQ664O'  # -Menthol or non-menthol other brand
+    smoking_rll_malboro = 'SMQ666M'  # -Regular, light or ultralite Marlboro
+    smoking_rll_camels = 'SMQ666C'  # -Regular, light or ultralite Camels
+    smoking_rll_kools = 'SMQ666K'  # -Regular, light or ultralite Kools
+    smoking_rll_winston = 'SMQ666W'  # -Regular, light or ultralite Winston
+    smoking_rll_bensonhedges = 'SMQ666B'  # -Regular, light or ultralite BensonHedges
+    smoking_rll_salem = 'SMQ666S'  # -Regular, light or ultralite Salem
+    smoking_rll_other = 'SMQ666O'  # -Regular, light or ultralite other brand
+    smoking_tried_quit = 'SMQ670'  # -Tried to quit smoking
+    smoking_qflag = 'SMAQUEX2'  # -Questionnaire Mode Flag
 
-    smoking_household_anyone = 'SMD410' #- #Does anyone smoking_household = 'SMoke in the home
-    smoking_household_total = 'SMD415' #- #Total number of smoking_household = 'SMokers in home
-    smoking_household_cigarette = 'SMD415A' #- #Total # of cigarette smoking_household = 'SMokers in home
-    smoking_household_cigar = 'SMD415B' #- #Total # of cigar smoking_household = 'SMokers in home
-    smoking_household_pipe = 'SMD415C' #- #Total # of pipe smoking_household = 'SMokers in home error:typo
-    smoking_household_cigarette_inhome = 'SMD430' #- #Total # cigarettes smoking_household = 'SMoked in home
-    smoking_household_cigar_inhome = 'SMD440' #- #Total # cigars smoking_household = 'SMoked in home
-    smoking_household_pipes_inhom = 'SMD450' #- #Total # pipes smoked in home
+    smoking_household_anyone = 'SMD410'  # - #Does anyone smoking_household = 'SMoke in the home
+    smoking_household_total = 'SMD415'  # - #Total number of smoking_household = 'SMokers in home
+    smoking_household_cigarette = 'SMD415A'  # - #Total # of cigarette smoking_household = 'SMokers in home
+    smoking_household_cigar = 'SMD415B'  # - #Total # of cigar smoking_household = 'SMokers in home
+    smoking_household_pipe = 'SMD415C'  # - #Total # of pipe smoking_household = 'SMokers in home error:typo
+    smoking_household_cigarette_inhome = 'SMD430'  # - #Total # cigarettes smoking_household = 'SMoked in home
+    smoking_household_cigar_inhome = 'SMD440'  # - #Total # cigars smoking_household = 'SMoked in home
+    smoking_household_pipes_inhom = 'SMD450'  # - #Total # pipes smoked in home
 
-    tb_ever_had_skint_test = 'TBQ010' #- #Ever had TB/tuberculosis skin test
-    tb_ever_had_positive_skin_test = 'TBQ020' #- #Ever told had positive TB skin test
-    tb_prescribed_preventive_medecine = 'TBQ030' #- #Prescribed medicine for preventing TB
-    tb_told_active = 'TBQ040' #- #Ever told you had active TB
-    tb_prescribed_medecine_active = 'TBQ050' #- #Prescribed medicine for active TB
-    tb_household_active = 'TBQ060' #- #Lived in household TB sick person
+    tb_ever_had_skint_test = 'TBQ010'  # - #Ever had TB/tuberculosis skin test
+    tb_ever_had_positive_skin_test = 'TBQ020'  # - #Ever told had positive TB skin test
+    tb_prescribed_preventive_medecine = 'TBQ030'  # - #Prescribed medicine for preventing TB
+    tb_told_active = 'TBQ040'  # - #Ever told you had active TB
+    tb_prescribed_medecine_active = 'TBQ050'  # - #Prescribed medicine for active TB
+    tb_household_active = 'TBQ060'  # - #Lived in household TB sick person
 
-    demo_release_number = 'SDDSRVYR' # - Data Release Number
-    demo_exam_status = 'RIDSTATR' # - Interview/Examination Status
-    demo_6_month_period = 'RIDEXMON' # - Six month time period
-    demo_gender = 'RIAGENDR' # - Gender
-    demo_age = 'RIDAGEYR' # - Age at Screening Adjudicated' # - Recode
-    demo_screening_age = 'RIDAGEMN' # - Age in Months at Screening' # - Recode
-    demo_exam_age= 'RIDAGEEX' # - Age in Months at Exam' # - Recode
-    demo_ethnicity = 'RIDRETH1' # - Race/Ethnicity' # - Recode
-    demo_served_forces = 'DMQMILIT' # - Served in the US Armed Forces
-    demo_birth_country = 'DMDBORN2' # - Country of Birth' # - Recode
-    demo_citizenship_status = 'DMDCITZN' # - Citizenship Status
-    demo_time_in_us = 'DMDYRSUS' # - Length of time in US
-    demo_education_level_child = 'DMDEDUC3' # - Education Level' # - Children/Youth 6-19
-    demo_education_level_adult = 'DMDEDUC2' # - Education Level' # - Adults 20+
-    demo_attending_school = 'DMDSCHOL' # - Now attending school?
-    demo_married = 'DMDMARTL' # - Marital Status
-    demo_household_number = 'DMDHHSIZ' # - Total number of people in the Household
-    demo_family_number = 'DMDFMSIZ' # - Total number of people in the Family
-    demo_household_income = 'INDHHIN2' # - Annual Household Income
-    demo_family_income = 'INDFMIN2' # - Annual Family Income
-    demo_poverty_ratio = 'INDFMPIR' # - Ratio of family income to poverty
-    demo_pregnant = 'RIDEXPRG' # - Pregnancy Status at Exam' # - Recode
-    demo_r_gender = 'DMDHRGND' # - HH Ref Person Gender
-    demo_r_age = 'DMDHRAGE' # - HH Ref Person Age
-    demo_r_birth_country = 'DMDHRBR2' # - HH Ref Person Country of Birth
-    demo_r_eduction_level = 'DMDHREDU' # - HH Ref Person Education Level
-    demo_r_marital_status = 'DMDHRMAR' # - HH Ref Person Marital Status
-    demo_r_spouse_education = 'DMDHSEDU' # - HH Ref Person's Spouse Education Level
-    demo_language = 'SIALANG' # - Language of SP Interview
-    demo_proxy = 'SIAPROXY' # - Proxy used in SP Interview?
-    demo_interpreter = 'SIAINTRP' # - Interpreter used in SP Interview?
-    demo_family_language = 'FIALANG' # - Language of Family Interview
-    demo_family_proxy = 'FIAPROXY' # - Proxy used in Family Interview?
-    demo_family_interpreter = 'FIAINTRP' # - Interpreter used in Family Interview?
-    demo_MEC_language = 'MIALANG' # - Language of MEC Interview
-    demo_MEC_proxy = 'MIAPROXY' # - Proxy used in MEC Interview?
-    demo_MEC_interpreter = 'MIAINTRP' # - Interpreter used in MEC Interview?
-    demo_ACASI_language = 'AIALANG' # - Language of ACASI Interview
-    demo_weight_interview = 'WTINT2YR' # - Full Sample 2 Year Interview Weight
-    demo_MEC_weight = 'WTMEC2YR' # - Full Sample 2 Year MEC Exam Weight
-    demo_variance_pseudo_psu = 'SDMVPSU' # - Masked Variance Pseudo-PSU
-    demo_variance_pseudo_stratum = 'SDMVSTRA' # - Masked Variance Pseudo-Stratum
-
-
-
-
-
-
-
-
-    
+    demo_release_number = 'SDDSRVYR'  # - Data Release Number
+    demo_exam_status = 'RIDSTATR'  # - Interview/Examination Status
+    demo_6_month_period = 'RIDEXMON'  # - Six month time period
+    demo_gender = 'RIAGENDR'  # - Gender
+    demo_age = 'RIDAGEYR'  # - Age at Screening Adjudicated' # - Recode
+    demo_screening_age = 'RIDAGEMN'  # - Age in Months at Screening' # - Recode
+    demo_exam_age = 'RIDAGEEX'  # - Age in Months at Exam' # - Recode
+    demo_ethnicity = 'RIDRETH1'  # - Race/Ethnicity' # - Recode
+    demo_served_forces = 'DMQMILIT'  # - Served in the US Armed Forces
+    demo_birth_country = 'DMDBORN2'  # - Country of Birth' # - Recode
+    demo_citizenship_status = 'DMDCITZN'  # - Citizenship Status
+    demo_time_in_us = 'DMDYRSUS'  # - Length of time in US
+    demo_education_level_child = 'DMDEDUC3'  # - Education Level' # - Children/Youth 6-19
+    demo_education_level_adult = 'DMDEDUC2'  # - Education Level' # - Adults 20+
+    demo_attending_school = 'DMDSCHOL'  # - Now attending school?
+    demo_married = 'DMDMARTL'  # - Marital Status
+    demo_household_number = 'DMDHHSIZ'  # - Total number of people in the Household
+    demo_family_number = 'DMDFMSIZ'  # - Total number of people in the Family
+    demo_household_income = 'INDHHIN2'  # - Annual Household Income
+    demo_family_income = 'INDFMIN2'  # - Annual Family Income
+    demo_poverty_ratio = 'INDFMPIR'  # - Ratio of family income to poverty
+    demo_pregnant = 'RIDEXPRG'  # - Pregnancy Status at Exam' # - Recode
+    demo_r_gender = 'DMDHRGND'  # - HH Ref Person Gender
+    demo_r_age = 'DMDHRAGE'  # - HH Ref Person Age
+    demo_r_birth_country = 'DMDHRBR2'  # - HH Ref Person Country of Birth
+    demo_r_eduction_level = 'DMDHREDU'  # - HH Ref Person Education Level
+    demo_r_marital_status = 'DMDHRMAR'  # - HH Ref Person Marital Status
+    demo_r_spouse_education = 'DMDHSEDU'  # - HH Ref Person's Spouse Education Level
+    demo_language = 'SIALANG'  # - Language of SP Interview
+    demo_proxy = 'SIAPROXY'  # - Proxy used in SP Interview?
+    demo_interpreter = 'SIAINTRP'  # - Interpreter used in SP Interview?
+    demo_family_language = 'FIALANG'  # - Language of Family Interview
+    demo_family_proxy = 'FIAPROXY'  # - Proxy used in Family Interview?
+    demo_family_interpreter = 'FIAINTRP'  # - Interpreter used in Family Interview?
+    demo_MEC_language = 'MIALANG'  # - Language of MEC Interview
+    demo_MEC_proxy = 'MIAPROXY'  # - Proxy used in MEC Interview?
+    demo_MEC_interpreter = 'MIAINTRP'  # - Interpreter used in MEC Interview?
+    demo_ACASI_language = 'AIALANG'  # - Language of ACASI Interview
+    demo_weight_interview = 'WTINT2YR'  # - Full Sample 2 Year Interview Weight
+    demo_MEC_weight = 'WTMEC2YR'  # - Full Sample 2 Year MEC Exam Weight
+    demo_variance_pseudo_psu = 'SDMVPSU'  # - Masked Variance Pseudo-PSU
+    demo_variance_pseudo_stratum = 'SDMVSTRA'  # - Masked Variance Pseudo-Stratum
