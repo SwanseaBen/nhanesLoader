@@ -16,15 +16,15 @@ def get_url_base(url):
     return result
 
 
-def augment_url_with_site(url, site, pref="http"):
-    if pref not in url:
+def augment_url_with_site(url, site, prefix="http"):
+    if prefix not in url:
         url = get_url_base(site) + ("/" if url[0] != "/" else "") + url
     return url
 
 
 def get_links(url, extensions):
-    r = requests.get(url)
-    contents = r.content
+    request = requests.get(url)
+    contents = request.content
 
     soup = BeautifulSoup(contents, "lxml")
     links = []
@@ -38,88 +38,88 @@ def get_links(url, extensions):
     return links
 
 
-def remove_prefix(s, prefix):
-    if s.startswith(prefix):
-        return s[len(prefix):]
-    return s
+def remove_prefix(path, prefix):
+    if path.startswith(prefix):
+        return path[len(prefix):]
+    return path
 
 
-def list_links(url, extension=[""]):
-    for x in get_links(url, extension):
-        print(x)
+def list_links(url, extensions=[""]):
+    for link in get_links(url, extensions):
+        print(link)
 
 
-def go_through_directory(pathRemoval, link, outputDir):
-    link = link.remove_prefix(pathRemoval)
+def go_through_directory(path, link, output_dir):
+    link = link.remove_prefix(path)
     # while "\\" in link:
     # os.makedirs(path, exist_ok=True)
 
 
-def download_links(links, pathRemoval, outputDir):
-    cpt = 1
+def download_links(links, path, output_dir):
+    count = 1
     for link in links:
-        link2 = remove_prefix(link, pathRemoval)
-        dir = os.path.dirname(link2)
-        newDir = outputDir + "\\" + dir
-        fname = newDir + "\\" + os.path.basename(link2)
+        link_processed = remove_prefix(link, path)
+        nhanes_dir = os.path.dirname(link_processed)
+        new_directory = output_dir + "\\" + nhanes_dir
+        file_name = new_directory + "\\" + os.path.basename(link_processed)
         print(link)
-        print("file ", cpt, " / ", len(links), " (" + fname + ")")
-        cpt = cpt + 1
+        print("file ", count, " / ", len(links), " (" + file_name + ")")
+        count = count + 1
         try:
-            os.makedirs(newDir, exist_ok=True)
-            if not os.path.isfile(fname):
+            os.makedirs(new_directory, exist_ok=True)
+            if not os.path.isfile(file_name):
                 response = requests.get(link, stream=True)
-                with open(fname, "wb") as handle:
+                with open(file_name, "wb") as handle:
                     for data in tqdm(response.iter_content()):
                         handle.write(data)
                     handle.close()
             else:
                 print("Skipped file as already created")
         except:
-            print("!!! PROBLEM Creating ", fname)
+            print("!!! PROBLEM Creating ", file_name)
 
 
-def download_url_links(url, extensions, pathRemoval, outputDir):
+def download_url_links(url, extensions, path, output_dir):
     links = get_links(url, extensions)
-    links = [augment_url_with_site(x, url) for x in links]
-    download_links(links, pathRemoval, outputDir)
+    links = [augment_url_with_site(link, url) for link in links]
+    download_links(links, path, output_dir)
 
 
-def download_nhanes(comp, year, type=1):
+def download_nhanes(components, years, type=1):
     #  prefix="https://wwwn.cdc.gov"
-    for y in year:
-        for c in comp:
+    for year in years:
+        for component in components:
             print()
             print(
                 "======================================================================================================================")
             if (type == 1):
-                url = "https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=" + c + "&CycleBeginYear=" + y
+                url = "https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=" + component + "&CycleBeginYear=" + year
                 removal = "https://wwwn.cdc.gov/Nchs/"
             else:
-                url = "https://wwwn.cdc.gov/nchs/nhanes/ContinuousNhanes/" + c + ".aspx?BeginYear=" + y
+                url = "https://wwwn.cdc.gov/nchs/nhanes/ContinuousNhanes/" + component + ".aspx?BeginYear=" + year
                 removal = "https://wwwn.cdc.gov/nchs/data/"
-            print(y, ":", c, "       =>", url)
+            print(year, ":", component, "       =>", url)
             print("")
-            types = [".XPT", ".dat", ".sas", ".txt", ".pdf", ".doc"];
+            types = [".XPT", ".dat", ".sas", ".txt", ".pdf", ".doc"]
             links = get_links(url, [".XPT", ".dat", ".sas", ".txt", ".pdf", ".doc"])
-            linksHtm = get_links(url, [".htm"])
-            for l in linksHtm:
-                pre, ext = os.path.splitext(l)
-                lXPT = pre + ".XPT"
-                lDAT = pre + ".dat"
-                lSAS = pre + ".sas"
-                if (lXPT in links) or (lDAT in links) or (lSAS in links):
-                    links.append(l)
+            links_htm = get_links(url, [".htm"])
+            for link in links_htm:
+                pre, ext = os.path.splitext(link)
+                links_xpt = pre + ".XPT"
+                links_dat = pre + ".dat"
+                links_sas = pre + ".sas"
+                if (links_xpt in links) or (links_dat in links) or (links_sas in links):
+                    links.append(link)
             # links = [prefix + sub for sub in links]
             links = [augment_url_with_site(x, url) for x in links]
             random.shuffle(links)
             download_links(links, removal, "C:\Tmp\\")
 
 
-def download_nhanes_b(comp, year):
-    for y in year:
-        for c in comp:
-            download_links("https://wwwn.cdc.gov/nchs/nhanes/ContinuousNhanes/" + c + ".aspx?BeginYear=" + y,
+def download_nhanes_b(components, years):
+    for year in years:
+        for component in components:
+            download_links("https://wwwn.cdc.gov/nchs/nhanes/ContinuousNhanes/" + component + ".aspx?BeginYear=" + year,
                            [".XPT", ".dat", ".sas", ".txt", ".pdf", ".doc"], "https://wwwn.cdc.gov/Nchs/data/",
                            "C:\Tmp\\")
 
@@ -140,161 +140,161 @@ def download_all_nhanes():
     # downloadLinks("https://www.cdc.gov/nchs/nhanes/nh3data.htm", [".xpt",".dat",".sas",".txt",".pdf"], "ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/nhanes","E:\Ben\Research\Datasets\Life Science\\")
 
 
-def browse_directory_tables(dir, extensions=[""]):
-    fNames = []
-    for root, dirs, files in os.walk(dir):
+def browse_directory_tables(directory, extensions=[""]):
+    file_names = []
+    for root, directories, files in os.walk(directory):
         for file in files:
-            for ext in extensions:
-                if ext in file:
-                    fNames.append(os.path.join(root, file))
-    return fNames
+            for extension in extensions:
+                if extension in file:
+                    file_names.append(os.path.join(root, file))
+    return file_names
 
 
-def count_elements(dir, attr=[""], all=False):
-    seqn = []
+def count_elements(directory, attributes=[""], all=False):
+    sequence_numbers = []
     columns = []
-    cpt = 0
-    totalSize = 0
+    count = 0
+    total_size = 0
 
-    notIncluded = []
-    for root, dirs, files in os.walk(dir):
+    not_included = []
+    for root, directories, files in os.walk(directory):
         for file in files:
             if ".XPT" in file:
                 found = False
                 if not all:
-                    for a in attr:
-                        if a in file:
+                    for attribute in attributes:
+                        if attribute in file:
                             found = True
                 if (not found) and (not all):
-                    notIncluded.append(file)
+                    not_included.append(file)
                 else:
-                    fileName = os.path.join(root, file)
-                    print('Opening file', fileName)
-                    df = pd.read_sas(fileName)
-                    if 'SEQN' in df:
-                        totalSize = totalSize + os.path.getsize(fileName)
-                        cpt = cpt + 1
-                        for c in list(df):
-                            columns.append(c)
-                        for s in df['SEQN'].values:
-                            seqn.append(s)
+                    file_name = os.path.join(root, file)
+                    print('Opening file', file_name)
+                    data = pd.read_sas(file_name)
+                    if 'SEQN' in data:
+                        total_size = total_size + os.path.getsize(file_name)
+                        count = count + 1
+                        for column in list(data):
+                            columns.append(column)
+                        for sequence_number in data['SEQN'].values:
+                            sequence_numbers.append(sequence_number)
                     else:
-                        notIncluded.append(file)
+                        not_included.append(file)
     print("========================= Not included: ====================================")
-    print(notIncluded)
+    print(not_included)
     columns = list(dict.fromkeys(columns))
-    seqn = list(dict.fromkeys(seqn))
+    sequence_numbers = list(dict.fromkeys(sequence_numbers))
     columns.sort()
-    seqn.sort()
+    sequence_numbers.sort()
 
-    return seqn, columns, totalSize, cpt
+    return sequence_numbers, columns, total_size, count
 
 
-def get_elements(seqn, columns, dir, attr, nbFiles=0, all=False):
-    ls = len(seqn)
-    lc = len(columns)
-    data = np.empty((ls, lc))
+def get_elements(sequence_numbers, columns, directory, attributes, num_files=0, all=False):
+    total_sequences = len(sequence_numbers)
+    total_columns = len(columns)
+    data = np.empty((total_sequences, total_columns))
     data[:] = np.NaN
     print("Loading Files")
-    cpt = 0
-    for root, dirs, files in os.walk(dir):
+    count = 0
+    for root, directories, files in os.walk(directory):
         for file in files:
             if ".XPT" in file:
                 found = False
                 if (not all):
-                    for a in attr:
+                    for a in attributes:
                         if a in file:
                             found = True
                 if all or found:
-                    fileName = os.path.join(root, file)
-                    df = pd.read_sas(fileName)
-                    allColumns = list(dict.fromkeys(list(df)))
-                    if 'SEQN' in allColumns:
-                        print('Reading file  ', cpt, "/", nbFiles, fileName)
-                        cpt = cpt + 1
+                    file_name = os.path.join(root, file)
+                    df = pd.read_sas(file_name)
+                    columns = list(dict.fromkeys(list(df)))
+                    if 'SEQN' in columns:
+                        print('Reading file  ', count, "/", num_files, file_name)
+                        count = count + 1
                         for index, row in df.iterrows():
-                            sIndex = bisect.bisect_left(seqn, row['SEQN'])
-                            for c in allColumns:
+                            sequence_index = bisect.bisect_left(sequence_numbers, row['SEQN'])
+                            for column in columns:
                                 try:
-                                    cIndex = bisect.bisect_left(columns, c)
-                                    data[sIndex][cIndex] = row[c]
+                                    column_index = bisect.bisect_left(columns, column)
+                                    data[sequence_index][column_index] = row[column]
                                 except ValueError:
-                                    # print('Error:',row[c],type(row[c]), c, fileName)
+                                    # print('Error:',row[column],type(row[column]), column, file_name)
                                     pass
     return data
 
 
-def np_to_csv(data, columns, dest='e:/nhanesTestVeryFast3.csv'):
+def np_to_csv(data, columns, destination='e:/nhanesTestVeryFast3.csv'):
     header = ''
-    for c in columns:
-        header = header + c + ', '
+    for column in columns:
+        header = header + column + ', '
     print("header")
     print(header)
-    np.savetxt(dest, data, header=header, delimiter=', ', comments='')
-    pass
+    np.savetxt(destination, data, header=header, delimiter=', ', comments='')
 
 
 def np_to_panda(data, columns):
-    df = pd.DataFrame(data, columns=columns)
-    return df
+    data = pd.DataFrame(data, columns=columns)
+    return data
 
 
-def nhanes_merger_numpy(dir, attr=[""], dest='e:/nhanesF.csv', all=False):
-    seqn, columns, totalSize, nbFiles = count_elements(dir, attr, all)
-    ls = len(seqn)
-    lc = len(columns)
-    print("===> Database filtering info:  ( nb Part", ls, ') (nb Columns', lc, ') (total file size (MBs)',
-          totalSize / 1024 / 1024, ') (nb Files)', nbFiles)
-    data = get_elements(seqn, columns, dir, attr, nbFiles, all)
-    # npToCSV(data,columns,dest)
+def nhanes_merger_numpy(directory, attributes=[""], destination='e:/nhanesF.csv', all=False):
+    sequence_numbers, columns, total_size, num_files = count_elements(directory, attributes, all)
+    total_sequences = len(sequence_numbers)
+    total_columns = len(columns)
+    print("===> Database filtering info:  ( nb Part", total_sequences, ') (nb Columns', total_columns,
+          ') (total file size (MBs)',
+          total_size / 1024 / 1024, ') (nb Files)', num_files)
+    data = get_elements(sequence_numbers, columns, directory, attributes, num_files, all)
+    # npToCSV(data, columns, destination)
     df = np_to_panda(data, columns)
-    df.to_csv(dest)
+    df.to_csv(destination)
     return df
 
 
-def load_csv(name, ageMin=-1, ageMax=200):
-    df = pd.read_csv(name, low_memory=False)
-    if 'RIDAGEYR' in df:
-        l = [x and y for x, y in zip((df['RIDAGEYR'] >= ageMin), (df['RIDAGEYR'] <= ageMax))]
-        return df[l]
+def load_csv(name, min_age=-1, max_age=200):
+    data = pd.read_csv(name, low_memory=False)
+    if 'RIDAGEYR' in data:
+        l = [x and y for x, y in zip((data['RIDAGEYR'] >= min_age), (data['RIDAGEYR'] <= max_age))]
+        return data[l]
     else:
-        return df
+        return data
 
 
-def keep_non_null(df, col):
-    l = (~df[col].isnull())
-    return df[l]
+def keep_non_null(data, column):
+    x = (~data[column].isnull())
+    return data[x]
 
 
-def keep_equal(df, col, val):
-    l = (df[col] == val)
-    return df[l]
+def keep_equal(data, column, value):
+    x = (data[column] == value)
+    return data[x]
 
 
-def keep_different(df, col, val):
-    l = (df[col] != val)
-    return df[l]
+def keep_different(data, column, value):
+    x = (data[column] != value)
+    return data[x]
 
 
-def keep_greater_than(df, col, val):
-    l = (df[col] > val)
-    return df[l]
+def keep_greater_than(data, column, value):
+    x = (data[column] > value)
+    return data[x]
 
 
-def keep_greater_equal(df, col, val):
-    l = (df[col] >= val)
-    return df[l]
+def keep_greater_equal(data, column, value):
+    x = (data[column] >= value)
+    return data[x]
 
 
-def keep_lower_than(df, col, val):
-    l = (df[col] < val)
-    return df[l]
+def keep_lower_than(data, column, value):
+    x = (data[column] < value)
+    return data[x]
 
 
-def keep_lower_equal(df, col, val):
-    l = (df[col] <= val)
-    return df[l]
+def keep_lower_equal(data, column, value):
+    x = (data[column] <= value)
+    return data[x]
 
 
-def keep_columns(df, cols):
-    return df[cols]
+def keep_columns(data, columns):
+    return data[columns]

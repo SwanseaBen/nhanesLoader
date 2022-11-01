@@ -68,7 +68,7 @@ class Tests:
     folate_rbc = 'LBXRBF'
     folate = 'LBDFOL'
     ferritin = 'LBDFER'
-    ferritinSI = 'LBXFERSI'
+    ferritin_si = 'LBXFERSI'
     transferin_receptor = 'LBXTFR'
 
     alcohol_first = 'ALQ010SAS'
@@ -86,7 +86,7 @@ class Tests:
     bpq_ever_told_cholesterol_reduce_fat = 'BPQ090A'
     bpq_ever_told_cholesterol_reduce_weight = 'BPQ090B'
     bpq_ever_told_cholesterol_exercise = 'BPQ090C'
-    bpq_ever_told_take_medecine = 'BPQ090D'
+    bpq_ever_told_take_medicine = 'BPQ090D'
 
     bowel_leakage_gas = 'BHQ010'
     bowel_leakage_mucus = 'BHQ020'
@@ -122,7 +122,7 @@ class Tests:
     health_30days_infection = 'HSQ520'
     health_12month_blood_donation = 'HSQ571'
     health_last_blood_donation = 'HSQ580'
-    health_ever_tested_HIV = 'HSQ590'
+    health_ever_tested_hiv = 'HSQ590'
 
     skin_ever_told_psoriasis = 'DEQ053'
     skin_psoriasis_issue = 'DEQ055'
@@ -264,7 +264,7 @@ class Tests:
     smoking_length = 'SMD100LN'  # -Length
     smoking_tar = 'SMD100TR'  # -FTC Tar Content
     smoking_nicotine = 'SMD100NI'  # -FTC Nicotine Content
-    smoking_CO = 'SMD100CO'  # -FTC Carbon Monoxide Content
+    smoking_co = 'SMD100CO'  # -FTC Carbon Monoxide Content
     smoking_tried = 'SMQ620'  # -Ever tried cigarette smoking
     smoking_age_first = 'SMD630'  # -Age first smoked whole cigarette
     smoking_brands = 'SMQ660'  # -Brands of cigarettes smoked/past mo
@@ -333,11 +333,11 @@ class Tests:
     demo_family_language = 'FIALANG'  # - Language of Family Interview
     demo_family_proxy = 'FIAPROXY'  # - Proxy used in Family Interview?
     demo_family_interpreter = 'FIAINTRP'  # - Interpreter used in Family Interview?
-    demo_MEC_language = 'MIALANG'  # - Language of MEC Interview
-    demo_MEC_proxy = 'MIAPROXY'  # - Proxy used in MEC Interview?
-    demo_MEC_interpreter = 'MIAINTRP'  # - Interpreter used in MEC Interview?
-    demo_ACASI_language = 'AIALANG'  # - Language of ACASI Interview
+    demo_mec_language = 'MIALANG'  # - Language of MEC Interview
+    demo_mec_proxy = 'MIAPROXY'  # - Proxy used in MEC Interview?
+    demo_mec_interpreter = 'MIAINTRP'  # - Interpreter used in MEC Interview?
+    demo_acasi_language = 'AIALANG'  # - Language of ACASI Interview
     demo_weight_interview = 'WTINT2YR'  # - Full Sample 2 Year Interview Weight
-    demo_MEC_weight = 'WTMEC2YR'  # - Full Sample 2 Year MEC Exam Weight
+    demo_mec_weight = 'WTMEC2YR'  # - Full Sample 2 Year MEC Exam Weight
     demo_variance_pseudo_psu = 'SDMVPSU'  # - Masked Variance Pseudo-PSU
     demo_variance_pseudo_stratum = 'SDMVSTRA'  # - Masked Variance Pseudo-Stratum
