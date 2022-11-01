@@ -29,14 +29,14 @@ Install Python and Beautiful Soup first
 One can scrap data by adding into a python code:
 
 ```
-import nhanesLoader as nl
-from nhanesVariables import Tests
+import nhanes.loader as nl
+from nhanes.variables import Tests
 
-testList = ["THYROD", "CBC"]
-currentDir = "C:\tmp\\"
-csvFile = 'C:/output.csv'
-nl.nhanes_merger_numpy(currentDir + "Nhanes\\", testList, dest=csvFile, all=True) # Scrape and creates CSV
-df = nl.load_csv(csvFile, ageMin=18, ageMax=25) # Load the created CSV file into a dataframe
+test_list = ["THYROD", "CBC"]
+current_dir = "C:\tmp\\"
+csv_file = 'C:/output.csv'
+nl.nhanes_merger_numpy(current_dir + "Nhanes\\", test_list, destination=csv_file, all=True) # Scrape and creates CSV
+df = nl.load_csv(csv_file, min_age=18, max_age=25) # Load the created CSV file into a dataframe
 ```
 
 ## Contributing
